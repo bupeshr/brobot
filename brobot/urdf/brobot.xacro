@@ -1,0 +1,229 @@
+<?xml version="1.0" ?>
+<robot name="brobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- 
+     Project name: BroBot
+     Author: Bupesh Rethinam V (aka) Rethen
+     About: BroBot was build as a final year project of my B.E Mechatronics Engineering 
+	    along with my friends at Procyon Techsolutions
+
+     
+ -->
+
+<xacro:include filename="$(find brobot)/urdf/materials.xacro" />
+<xacro:include filename="$(find brobot)/urdf/brobot.trans" />
+<xacro:include filename="$(find brobot)/urdf/brobot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.36008722023992734 0.17877322415490032 0.28599116682455195" rpy="0 0 0"/>
+    <mass value="17.09676932760313"/>
+    <inertia ixx="1.413287" iyy="1.384993" izz="2.203209" ixy="-0.033701" iyz="-0.001099" ixz="-0.005215"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_wheel_1">
+  <inertial>
+    <origin xyz="-3.2856902820732614e-07 0.019999608403562186 1.1163417079629312e-08" rpy="0 0 0"/>
+    <mass value="1.399469571431377"/>
+    <inertia ixx="0.003862" iyy="0.007352" izz="0.003862" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.363812 -0.529033 -0.126483" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/r_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.363812 -0.529033 -0.126483" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/r_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_wheel_1">
+  <inertial>
+    <origin xyz="1.967615239073517e-07 -0.020000391596432687 -3.40553919092601e-07" rpy="0 0 0"/>
+    <mass value="1.3994695714313785"/>
+    <inertia ixx="0.003862" iyy="0.007352" izz="0.003862" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.363368 0.174967 -0.126007" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.363368 0.174967 -0.126007" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-2.4396960868200424e-07 -3.9159643477892914e-07 0.005000277452709756" rpy="0 0 0"/>
+    <mass value="0.0074926984788116794"/>
+    <inertia ixx="0.0" iyy="0.0" izz="1e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.476907 -0.177033 -0.463615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.476907 -0.177033 -0.463615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_2">
+  <inertial>
+    <origin xyz="0.05458324394921843 0.19796760840356512 -0.18519171907690637" rpy="0 0 0"/>
+    <mass value="0.3684764808057021"/>
+    <inertia ixx="0.000298" iyy="0.000298" izz="0.000272" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009166 0.345935 -0.263586" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009166 0.345935 -0.263586" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_3">
+  <inertial>
+    <origin xyz="0.054583243949218575 0.14796760840355988 -0.18519171907690607" rpy="0 0 0"/>
+    <mass value="0.3684764808057021"/>
+    <inertia ixx="0.000298" iyy="0.000298" izz="0.000272" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009166 -0.354065 -0.263586" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009166 -0.354065 -0.263586" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_1">
+  <inertial>
+    <origin xyz="2.4394920228321126e-07 -3.915964320588827e-07 -0.03522071907690685" rpy="0 0 0"/>
+    <mass value="0.3684764808057021"/>
+    <inertia ixx="0.000298" iyy="0.000298" izz="0.000272" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.745417 -0.077033 -0.113615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.745417 -0.077033 -0.113615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_4">
+  <inertial>
+    <origin xyz="2.4394920250525587e-07 -3.915964335576838e-07 -0.035220719076906784" rpy="0 0 0"/>
+    <mass value="0.3684764808057021"/>
+    <inertia ixx="0.000298" iyy="0.000298" izz="0.000272" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.745417 -0.327033 -0.113615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.745417 -0.327033 -0.113615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brobot/meshes/castor_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev5" type="continuous">
+  <origin xyz="0.363812 0.529033 0.126483" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="r_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev6" type="continuous">
+  <origin xyz="0.363368 -0.174967 0.126007" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_wheel_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rev7" type="continuous">
+  <origin xyz="0.476907 0.177033 0.463615" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Rigid9" type="fixed">
+  <origin xyz="-0.009166 -0.345935 0.263586" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="castor_2"/>
+</joint>
+
+<joint name="Rigid10" type="fixed">
+  <origin xyz="-0.009166 0.354065 0.263586" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="castor_3"/>
+</joint>
+
+<joint name="Rigid12" type="fixed">
+  <origin xyz="0.745417 0.077033 0.113615" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="castor_1"/>
+</joint>
+
+<joint name="Rigid13" type="fixed">
+  <origin xyz="0.745417 0.327033 0.113615" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="castor_4"/>
+</joint>
+
+</robot>

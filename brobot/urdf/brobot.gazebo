@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+
+<!-- 
+     Project name: BroBot
+     Author: Bupesh Rethinam V (aka) Rethen
+     About: BroBot was build as a final year project of my B.E Mechatronics Engineering 
+	    along with my friends at Procyon Techsolutions
+
+     
+ -->
+<robot name="brobot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+	<gazebo>
+	  <plugin name="control" filename="libgazebo_ros_control.so"/>
+	</gazebo>
+	<gazebo reference="base_link">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	  <gravity>true</gravity>
+	</gazebo>
+
+	<gazebo reference="r_wheel_1">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	</gazebo>
+
+	<gazebo reference="l_wheel_1">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	</gazebo>
+
+	<gazebo reference="lidar_1">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	</gazebo>
+
+	<gazebo reference="castor_2">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	</gazebo>
+
+	<gazebo reference="castor_3">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	</gazebo>
+
+	<gazebo reference="castor_1">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	</gazebo>
+
+	<gazebo reference="castor_4">
+	  <material>${body_color}</material>
+	  <mu1>0.2</mu1>
+	  <mu2>0.2</mu2>
+	  <selfCollide>true</selfCollide>
+	</gazebo>
+
+	<gazebo>
+  		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+    
+		    <updateRate>10</updateRate>
+		    <leftJoint>Rev6</leftJoint>
+		    <rightJoint>Rev5</rightJoint>
+		    <wheelSeparation>0.740</wheelSeparation>
+		    <wheelDiameter>0.40</wheelDiameter>
+		    <wheelAcceleration>1.0</wheelAcceleration>
+		    <wheelTorque>20</wheelTorque>
+		    <commandTopic>cmd_vel</commandTopic>
+		    <robotBaseFrame>base_link</robotBaseFrame>
+		    <odometryTopic>odom</odometryTopic>
+    		    <odometryFrame>odom</odometryFrame>
+    		    <odometrySource>0</odometrySource>
+    		    <publishWheelTF>true</publishWheelTF>
+   		    <publishOdom>false</publishOdom>
+		    <publishWheelJointState>true</publishWheelJointState>
+		    <legacyMode>false</legacyMode>
+  		</plugin>
+	</gazebo>
+
+	<gazebo reference="lidar_1">
+		    <sensor type="ray" name="ydlidarX2">
+			      <pose>0 0 0 0 0 0</pose>
+			      <visualize>true</visualize>
+			      <update_rate>40</update_rate>
+			      <ray>
+				  <scan>
+				      <horizontal>
+					  <samples>720</samples>
+					  <resolution>1</resolution>
+					  <min_angle>-3.14</min_angle>
+					  <max_angle>3.14</max_angle>
+				       </horizontal>
+				  </scan>
+				  <range>
+					  <min>0.10</min>
+					  <max>30.0</max>
+					  <resolution>0.01</resolution>
+				  </range>
+					<noise>
+					  <type>gaussian</type>
+					  <mean>0.0</mean>
+					  <stddev>0.01</stddev>
+					</noise>
+			      </ray>
+			      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+				<topicName>/scan</topicName>
+				<frameName>lidar_1</frameName>
+			      </plugin>
+		    </sensor>
+  </gazebo>
+
+
+
+</robot>
